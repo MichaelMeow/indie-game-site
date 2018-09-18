@@ -53,6 +53,26 @@ module.exports = {
       inject: 'body',
       template: './src/index.html',
       filename: 'index.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/about.html',
+      filename: 'about.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/blog.html',
+      filename: 'blog.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/devs.html',
+      filename: 'devs.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/media.html',
+      filename: 'media.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/screenshots.html',
+      filename: 'screenshots.html'
     })
   ]
 

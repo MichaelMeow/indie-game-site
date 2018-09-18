@@ -1,13 +1,27 @@
 @import "mixins";
+@import "variables";
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Mukta+Malar');
+
+body {
+  font-family: 'Mukta Malar', sans-serif;
+  background-color: black;
+  background-image: url('../assets/images/stardust.png');
+}
 
 .wrapper {
   max-width: 1024px;
   margin: 0 auto;
+  display: grid;
+  grid-template: repeat(12, minmax(80px, auto)) / repeat(6, (100/6)*1%);
+  gap: 5px;
 }
 
 .top-nav {
   @include flexbox(row, space-between, center);
   padding: 10px;
+  grid-column: span 6;
+  // background-color: darken($offPurple, 20%);
 }
 
 .top-nav-box {
@@ -19,33 +33,59 @@
   width: 450px;
 }
 
+.top-nav-button {
+  a {
+    color: lighten($offPurple, 40%);
+  }
+}
+
+.btn-outline-dark {
+  background-color: black;
+  &:hover {
+    background-color: $offPurple;
+    border-color: $offPurple;
+  }
+  @include shadow();
+}
+
+.buy-button {
+  color: white;
+}
+
 .title-banner {
-  border: 3px solid red;
-  text-align: center;
-  font-size: 2em;
+  @include flexbox(row, center, center);
+  grid-column: span 6;
+  @include shadow();
+  @include header-style(2rem);
 }
 
 .countdown-frame {
+  @include shadow();
+  grid-column: span 6;
+  grid-row: span 8;
   @include flexbox(row, center, center);
   background-image: url('../assets/images/timerbackground.jpg');
   width: 100%;
-  height: 700px; //temporary
+}
+
+.countdown-frame.media-page {
+
 }
 
 .countdown-display {
-  color: red;
-  font-size: 48pt;
+  @include header-style(3rem);
+
 }
 
 .media-quote {
+  grid-column: span 6;
+  grid-row: span 2;
   @include flexbox(column,center,center);
   margin: 35px 0px;
-  font-size: 1.5rem;
+  @include header-style(1.5rem);
 }
 
-.thumbnail-gallery {
-  @include flexbox(column, center, center);
-}
+
 
 .thumbnail-row {
   @include flexbox(row, space-between, center);
@@ -53,18 +93,32 @@
 }
 
 .thumbnail-item {
+  overflow: hidden;
+  grid-column: span 2;
+  grid-row: span 2;
   padding: 4px;
   img {
     width: 100%;
   }
 }
 .game-info {
+  grid-column: span 6;
   padding: 20px;
-  background-color: darken(gray, 20%);
-  color: white;
+  background-color: darken($offPurple, 20%);
+  color: lighten($offPurple, 40%);
   @include flexbox (row,space-between,center);
   .platforms{
-    @include flexbox (column,flex-start, flex-start);
+    @include flexbox (row,center, flex-start);
+    div {
+      margin: 0 5px;
+      svg {
+        max-width: 50px;
+        max-height: 50px;
+        g {
+          fill: lighten($darkBlue, 20%);
+        }
+      }
+    }
   }
 
 }

@@ -4,3 +4,15 @@
   justify-content: $mainaxis;
   align-items: $crossaxis;
 }
+
+@mixin header-style($size) {
+  font-size: $size;
+  font-weight: bolder;
+  color: $offPurple;
+  text-shadow: 1px 1px lighten($offPurple, 20%);
+}
+
+@mixin shadow() {
+  box-sizing: border-box;
+  box-shadow: 0px 0px 10px 10px $darkBlue inset;
+}
