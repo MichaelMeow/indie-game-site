@@ -1,3 +1,70 @@
-body {
-  font-size: 36px;
+@import "mixins";
+
+.wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.top-nav {
+  @include flexbox(row, space-between, center);
+  padding: 10px;
+}
+
+.top-nav-box {
+  @include flexbox(row, center, center);
+}
+
+#nav-links{
+  @include flexbox(row, space-between, center);
+  width: 450px;
+}
+
+.title-banner {
+  border: 3px solid red;
+  text-align: center;
+  font-size: 2em;
+}
+
+.countdown-frame {
+  @include flexbox(row, center, center);
+  background-image: url('../assets/images/timerbackground.jpg');
+  width: 100%;
+  height: 700px; //temporary
+}
+
+.countdown-display {
+  color: red;
+  font-size: 48pt;
+}
+
+.media-quote {
+  @include flexbox(column,center,center);
+  margin: 35px 0px;
+  font-size: 1.5rem;
+}
+
+.thumbnail-gallery {
+  @include flexbox(column, center, center);
+}
+
+.thumbnail-row {
+  @include flexbox(row, space-between, center);
+  width: 100%;
+}
+
+.thumbnail-item {
+  padding: 4px;
+  img {
+    width: 100%;
+  }
+}
+.game-info {
+  padding: 20px;
+  background-color: darken(gray, 20%);
+  color: white;
+  @include flexbox (row,space-between,center);
+  .platforms{
+    @include flexbox (column,flex-start, flex-start);
+  }
+
 }
