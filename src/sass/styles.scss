@@ -59,13 +59,22 @@ body {
   @include header-style(2rem);
 }
 
-.countdown-frame {
+.countdown-frame, .countdown-sidebar {
   @include shadow();
-  grid-column: span 6;
-  grid-row: span 8;
   @include flexbox(row, center, center);
   background-image: url('../assets/images/timerbackground.jpg');
   width: 100%;
+}
+
+.countdown-frame {
+  grid-column: span 6;
+  grid-row: span 8;
+}
+
+.countdown-sidebar {
+  grid-column: span 2;
+  grid-row: span 2;
+
 }
 
 .countdown-frame.media-page {
@@ -101,8 +110,23 @@ body {
     width: 100%;
   }
 }
-.game-info {
-  grid-column: span 6;
+
+.screenshots {
+  @include flexbox(row, space-between, center);
+  flex-wrap: wrap;
+  grid-column-start: 3;
+  grid-column-end: 7;
+  grid-row-start: 3;
+  grid-row-end: 10;
+  @include shadow();
+}
+
+.screenshots-row {
+  @include flexbox(row, space-between, center);
+  width: 100%;
+}
+
+.game-info, .game-info-sidebar {
   padding: 20px;
   background-color: darken($offPurple, 20%);
   color: lighten($offPurple, 40%);
@@ -120,5 +144,19 @@ body {
       }
     }
   }
+}
 
+.game-info {
+  grid-column: span 6;
+}
+
+.game-info-sidebar {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 5;
+  grid-row-end: 8;
+  border: 1px solid red;
+  width: 100%;
+  @include flexbox(column, space-between, center);
+  background-color: $offPurple;
 }

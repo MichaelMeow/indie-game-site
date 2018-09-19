@@ -23,3 +23,5 @@ var time = setInterval(function() {
     document.getElementById("timer").innerHTML = "Spooky Scary Forest Is Out NOW!";
   }
 }, 1000);
+
+//
