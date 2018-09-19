@@ -1,10 +1,13 @@
 
 import './sass/styles.scss';
 import 'bootstrap';
+import $ from 'jquery';
+import 'slick-carousel';
 
-console.log("hi.");
+require('slick-carousel/slick/slick.css');
 
-// Creating a countdown timerbackground. This, uh, it doesn't really work yet.
+
+
 
 var releaseDate = new Date("Oct 1, 2018 00:00:00").getTime();
 
@@ -24,4 +27,23 @@ var time = setInterval(function() {
   }
 }, 1000);
 
-//
+// Attempted jquery-slideshow implementation
+
+$(document).ready(function(){
+  $(".slider").slick({
+    infinite: true,
+    initialSlide: '2',
+
+  });
+
+  $(".screenshots img").click(function(){
+    $('.overlay').show();
+    $('.img-carousel').css("visibility", "visible");
+    $('.overlay').click(function(){
+      $('.overlay').hide();
+      $('.img-carousel').css("visibility", "hidden");
+
+    });
+
+  })
+})

@@ -18,12 +18,25 @@ module.exports = {
     rules: [
 
       {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      },
+
+      {
         test: /\.scss$/,
         use: [
           'style-loader',
           'css-loader',
           'sass-loader'
         ]
+      },
+
+      {
+        test: /\.svg$/,
+        use: 'svg-inline-loader'
       },
 
       {
@@ -39,11 +52,21 @@ module.exports = {
         ]
       },
       {
-        test: /\.html$/,
-        use: [
-          'html-loader'
-        ]
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        use: 'file-loader'
       },
+      {
+        test:/\.html$/,
+        loader: 'html-srcsets-loader',
+        options: {
+          attrs: ['img:src', ':srcset'],
+          minimize: true,
+          caseSensitive: true,
+          removeAttributeQuotes: false,
+          minifyJS: false,
+          minifyCSS: false
+        }
+      }
     ]
 
   },
