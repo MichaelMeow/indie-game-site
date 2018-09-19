@@ -6,7 +6,7 @@ console.log("hi.");
 
 // Creating a countdown timerbackground. This, uh, it doesn't really work yet.
 
-var releaseDate = new Date("Sept 21, 2018 00:00:00").getTime();
+var releaseDate = new Date("Oct 1, 2018 00:00:00").getTime();
 
 var time = setInterval(function() {
   var now = new Date().getTime();
