@@ -10,12 +10,40 @@ body {
   background-image: url('../assets/images/stardust.png');
 }
 
+.main-image {
+  z-index: 0;
+  width: 100%;
+  height: 675px;
+  position: absolute;
+  top: 170px;
+  overflow:hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 100%;
+    @include mediaQuery(0px, 1200px) {
+      width: 1200px;
+    }
+    @include mediaQuery(1360px, 0){
+      width: 100%;
+      align-content: center;
+    };
+  }
+}
+
 .wrapper{
   max-width: 1024px;
   margin: 0 auto;
   display: grid;
   grid-template: repeat(12, minmax(80px, auto)) / repeat(6, 1fr);
   grid-gap: 5px;
+  min-height: 0;
+}
+
+#wrapper-index {
+  grid-template: repeat(17, minmax(80px, auto)) / repeat(6, 1fr);
 }
 
 .top-nav {
@@ -29,9 +57,41 @@ body {
   @include flexbox(row, center, center);
 }
 
-#nav-links{
-  @include flexbox(row, space-between, center);
+#mobile-menu-container {
+  color: $offPurple;
+  display: none;
+  @include mediaQuery(0px, 600px) {
+    display: inline-block;
+  }
+  svg {
+    fill: $offPurple;
+  }
+}
+
+#logo-container {
+  width: 50px;
+  svg {
+    fill: $offPurple;
+    width: 100%;
+  }
+  @include mediaQuery(0px, 600px) {
+
+  }
+}
+
+.nav-button {
+  @include mediaQuery(0px, 600px) {
+    display: none;
+  }
+}
+
+.nav-links{
   width: 450px;
+  @include flexbox(row, space-between, center);
+  // width: 450px;
+  @include mediaQuery(0px, 600px) {
+    display: none;
+  }
 }
 
 .top-nav-button {
@@ -61,9 +121,7 @@ body {
 }
 
 .countdown-frame, .countdown-sidebar {
-  @include shadow();
   @include flexbox(row, center, center);
-  background-image: url('../assets/images/timerbackground.jpg');
   width: 100%;
 }
 
@@ -73,18 +131,19 @@ body {
 }
 
 .countdown-sidebar {
+  @include shadow();
   grid-column: span 2;
   grid-row: span 2;
-
-}
-
-.countdown-frame.media-page {
-
+  @include mediaQuery(0px, 1024px) {
+    grid-column: span 6;
+    grid-row-start: 9;
+  }
 }
 
 .countdown-display {
   @include header-style(3rem);
-
+  z-index: 2;
+  position: absolute;
 }
 
 .media-quote {
@@ -97,31 +156,34 @@ body {
 
 
 
-.thumbnail-row {
-  @include flexbox(row, space-between, center);
-  width: 100%;
-}
+// .thumbnail-row {
+//   @include flexbox(row, space-between, center);
+//   width: 100%;
+// }
 
 .thumbnail-item {
-  overflow: hidden;
   grid-column: span 2;
   grid-row: span 2;
   padding: 4px;
+  overflow: hidden;
   img {
     width: 100%;
   }
+  @include mediaQuery(0px, 1024px){
+    grid-column: span 6;
+  };
 }
 
 .screenshots {
-  @include flexbox(row, space-between, center);
-  flex-wrap: wrap;
-  grid-column-start: 3;
-  grid-column-end: 7;
-  grid-row-start: 3;
-  grid-row-end: 10;
+
   @include shadow();
   img:hover {
     cursor: pointer;
+  }
+  @include mediaQuery(0px, 1024px) {
+    grid-column-start: 1;
+    grid-column: span 6;
+    grid-row: span 1;
   }
 }
 
@@ -162,6 +224,21 @@ body {
 
 .game-info {
   grid-column: span 6;
+  @include mediaQuery(0px, 900px) {
+    flex-direction: column;
+    div {
+      margin: 20px 0;
+    }
+  };
+}
+.price {
+  font-size: 2rem;
+}
+#spookyGames {
+  font-size: 2rem;
+}
+#releaseDate {
+  font-size: 1.5rem;
 }
 
 .game-info-sidebar {
@@ -171,6 +248,11 @@ body {
   grid-row-end: 10;
   width: 100%;
   @include flexbox(column, space-between, center);
+  @include mediaQuery(0px, 1024px) {
+    grid-column: span 6;
+    grid-row: span 2;
+    grid-row-start: 10;
+  }
 }
 
 

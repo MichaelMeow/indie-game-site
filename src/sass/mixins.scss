@@ -16,3 +16,21 @@
   box-sizing: border-box;
   box-shadow: 0px 0px 10px 10px $darkBlue inset;
 }
+
+@mixin mediaQuery($minRes, $maxRes) {
+
+  @if $maxRes == 0 {
+    @media (min-width: #{$minRes}) {
+      @content;
+    }
+  }
+
+  @else {
+    @media (min-width: #{$minRes}) and (max-width: #{$maxRes}) {
+      @content;
+    }
+  }
+
+
+
+}
